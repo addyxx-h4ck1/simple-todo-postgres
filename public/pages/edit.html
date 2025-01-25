@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Todo List</title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+      <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    </head>
+  </head>
+  <body
+    class="bg-[#78C1F2] text-[#1b1b1b] h-[100vh] flex justify-center items-center mx-2"
+  >
+    <section
+      class="w-full max-w-[500px] flex flex-col justify-center items-center p-4 rounded-lg bg-[#FFFFFF]"
+    >
+      <h1 class="text-center font-semibold text-lg">Edit Todo</h1>
+      <form class="w-[98%] mt-3 flex flex-col gap-3 items-center">
+        <input
+          type="text"
+          required
+          placeholder="Edit this todo"
+          value="Watch Football"
+          class="w-full py-3 px-6 outline-0 bg-[#ECEEEF] rounded-md"
+        />
+        <button
+          type="submit"
+          class="submit-button w-full py-3 px-6 outline-0 bg-[royalblue] text-white rounded-md font-semibold"
+        >
+          Save
+        </button>
+      </form>
+    </section>
+  </body>
+</html>

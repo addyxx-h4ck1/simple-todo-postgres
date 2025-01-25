@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
+      integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script defer src="./public/js/get-todos.js"></script>
+    <script defer src="/public/js/actions.js"></script>
+  </head>
+  <body
+    class="bg-[#78C1F2] text-[#1b1b1b] h-[100vh] flex justify-center items-center mx-2"
+  >
+    <section
+      class="w-full max-w-[500px] flex flex-col justify-center items-center p-4 rounded-lg bg-[#FFFFFF]"
+    >
+      <h1 class="text-center font-semibold text-lg">Todo List</h1>
+      <form class="add-todo w-[98%] mt-3 flex items-center">
+        <input
+          type="text"
+          required
+          placeholder="Add task"
+          name="todo"
+          class="w-full py-3 px-6 outline-0 bg-[#ECEEEF] rounded-l-md"
+        />
+        <button
+          type="submit"
+          class="submit-button py-3 px-6 outline-0 bg-[royalblue] text-white rounded-r-md font-semibold"
+        >
+          Add
+        </button>
+      </form>
+      <!-- Status Box -->
+      <div class="status mt-3 text-sm font-semibold"></div>
+      <!-- TASKS -->
+      <article class="tasks mt-4 w-full flex flex-col gap-3">
+        <!-- Dynamically Add Tasks Here -->
+        <!-- <div
+          class="w-full flex items-center justify-between gap-3 py-3 px-6 bg-[#ECEEEF] rounded-l-md"
+        >
+          <p>${e?.task}</p>
+          <div class="flex items-center gap-3">
+            <button class="font-semibold duration-300 hover:text-[royalblue]">
+              <i class="fa fa-check"></i>
+            </button>
+            <button class="font-semibold duration-300 hover:text-[royalblue]">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button class="font-semibold duration-300 hover:text-red-500">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div> -->
+      </article>
+    </section>
+  </body>
+</html>

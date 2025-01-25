@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "task": "Watch football",
+    "completed": false
+  },
+  {
+    "id": 1,
+    "task": "Go to John's",
+    "completed": true
+  },
+  {
+    "id": 1,
+    "task": "Visit Mum",
+    "completed": true
+  },
+  {
+    "id": 4,
+    "task": "Watch Pirates of the carribean",
+    "completed": true
+  },
+  {
+    "id": 5,
+    "task": "Wash Clothes",
+    "completed": false
+  }
+]
