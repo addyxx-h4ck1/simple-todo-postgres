@@ -1,11 +1,12 @@
 config();
-import { config } from 'dotenv';
-import express from 'express';
-const app = express();
-import routes from './routes/routes.js';
 import path from 'path';
-import { getDir } from './libs/get-dir.js';
+import express from 'express';
+import { config } from 'dotenv';
 import serveStatic from 'serve-static';
+import routes from './routes/routes.js';
+import { getDir } from './libs/get-dir.js';
+
+const app = express();
 const port = process.env.PORT || 8080;
 
 //middleware

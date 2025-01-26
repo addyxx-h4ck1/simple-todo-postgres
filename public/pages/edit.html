@@ -12,7 +12,14 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
       />
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
+        integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
       <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+      <script defer src="/public/js/edit.js"></script>
     </head>
   </head>
   <body
@@ -22,7 +29,8 @@
       class="w-full max-w-[500px] flex flex-col justify-center items-center p-4 rounded-lg bg-[#FFFFFF]"
     >
       <h1 class="text-center font-semibold text-lg">Edit Todo</h1>
-      <form class="w-[98%] mt-3 flex flex-col gap-3 items-center">
+      <article class="data-box w-full">
+        <!-- <form class="w-[98%] mt-3 flex flex-col gap-3 items-center">
         <input
           type="text"
           required
@@ -36,7 +44,9 @@
         >
           Save
         </button>
-      </form>
+      </form> -->
+      </article>
+      <div class="process flex justify-between items-center my-3"></div>
     </section>
   </body>
 </html>

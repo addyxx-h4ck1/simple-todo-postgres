@@ -20,8 +20,8 @@ async function Refetch() {
                 ? ''
                 : `<button class="update-action font-semibold duration-300 hover:text-[royalblue]" data-id=${e?.todo_id}>              <i class="fa fa-check"></i>            </button>`
             }
-            <button class="font-semibold duration-300 hover:text-[royalblue]">
-              <i class="fa fa-edit"></i>
+            <button class="edit-action font-semibold duration-300 hover:text-[royalblue]">
+              <i class="fa fa-edit" data-id=${e?.todo_id}></i>
             </button>
             <button class="delete-action font-semibold duration-300 hover:text-red-500"
                       data-id=${e?.todo_id}>
@@ -43,6 +43,7 @@ function deleteHandler() {
   document.querySelector('.tasks').addEventListener('click', (e) => {
     const deleteBtn = e.target.closest('.delete-action');
     const updatebtn = e.target.closest('.update-action');
+    const editbtn = e.target.closest('.edit-action');
 
     //Delete Task
     if (deleteBtn) {
@@ -83,6 +84,11 @@ function deleteHandler() {
         }
       })();
     }
+
+    //Edit  Action
+    if (editbtn) {
+      window.location.pathname = `/todo/${editbtn?.dataset.id}`;
+    }
   });
 }
 
@@ -119,3 +125,27 @@ async function submitTodo() {
 
 //Exec
 submitTodo();
+
+document.querySelectorAll('.update-action').forEach((element) => {
+  element.addEventListener('click', async (e) => {
+    try {
+      const res = await axios.patch(
+        `/update/${e.target.parentElement.dataset.id}`,
+      );
+      document.querySelector(
+        '.status',
+      ).innerHTML = `<p class="text-green-500">Task marked complete</p>`;
+      setTimeout(() => {
+        document.querySelector('.status').innerHTML = null;
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+      document.querySelector('.status').innerHTML = `<p class="text-red-500">${
+        error?.response?.data?.err || 'Failed!'
+      }</p>`;
+      setTimeout(() => {
+        document.querySelector('.status').innerHTML = null;
+      }, 2000);
+    }
+  });
+});

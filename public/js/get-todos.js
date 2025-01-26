@@ -24,7 +24,9 @@ const loader = document.querySelector('.status');
                 ? ''
                 : `<button class="update-action font-semibold duration-300 hover:text-[royalblue]" data-id=${e?.todo_id}>              <i class="fa fa-check"></i>            </button>`
             }
-            <button class="font-semibold duration-300 hover:text-[royalblue]">
+            <button class="edit-action font-semibold duration-300 hover:text-[royalblue]" data-id=${
+              e?.todo_id
+            }>
               <i class="fa fa-edit"></i>
             </button>
             <button class="delete-action font-semibold duration-300 hover:text-red-500"  data-id=${

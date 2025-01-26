@@ -87,3 +87,69 @@ export const updateTodo = async (req: Request, res: Response): Promise<any> => {
     client.release();
   }
 };
+
+export const handleChangeTask = async (
+  req: Request,
+  res: Response,
+): Promise<any> => {
+  const client = await pool.connect();
+  const { id } = req.params;
+  const { todo } = req.body;
+
+  if (!id)
+    return res.status(400).json({
+      ok: false,
+      err: 'Invalid todo ID',
+    });
+
+  try {
+    const update = await client.query(
+      'UPDATE todos SET todo = $1, completed = false WHERE todo_id = $2 ',
+      [todo, id],
+    );
+    res.status(200).json({
+      ok: true,
+      msg: 'Task Updated!',
+    });
+  } catch (error: any) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      err: error?.message || 'server error',
+    });
+  } finally {
+    client.release();
+  }
+};
+
+export const getSingleTodo = async (
+  req: Request,
+  res: Response,
+): Promise<any> => {
+  const client = await pool.connect();
+  const { id } = req.params;
+  if (!id)
+    return res.status(400).json({
+      ok: false,
+      err: 'Invalid todo ID',
+    });
+
+  try {
+    const { rows } = await client.query(
+      'SELECT * FROM todos WHERE todo_id = $1',
+      [id],
+    );
+    res.status(200).json({
+      ok: true,
+      data: rows,
+    });
+  } catch (error: any) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      err: error?.message || 'server error',
+    });
+  } finally {
+    client.release();
+  }
+};
